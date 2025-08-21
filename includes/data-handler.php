@@ -1,10 +1,15 @@
 <?php
 function bs_handle_submission() {
     if (isset($_POST['bs_submit'])) {
+        if (!isset($_POST['bs_form_nonce']) || !wp_verify_nonce($_POST['bs_form_nonce'], 'bs_form_action')) {
+            return;
+        }
+
         $data = [
             'q1101' => intval($_POST['q1101']),
             'q1203' => floatval($_POST['q1203']),
         ];
+
         update_user_meta(get_current_user_id(), 'bs_questionario', $data);
         bs_send_to_api($data);
         bs_calculate_indicators($data);
@@ -12,4 +17,6 @@ function bs_handle_submission() {
 }
 add_action('init', 'bs_handle_submission');
 ?>
+
+
 
