@@ -1,0 +1,27 @@
+msgid "Numero totale di posti di lavoro"
+msgstr "Numero totale di posti di lavoro"
+
+msgid "Entrate totali annue"
+msgstr "Entrate totali annue"
+
+msgid "Invia"
+msgstr "Invia"
+
+msgid "Indicatori Bilancio Sociale"
+msgstr "Indicatori Bilancio Sociale"
+
+msgid "Esporta CSV"
+msgstr "Esporta CSV"
+
+msgid "Giudizio sintetico per area"
+msgstr "Giudizio sintetico per area"
+
+msgid "Ottimo"
+msgstr "Ottimo"
+
+msgid "Buono"
+msgstr "Buono"
+
+msgid "Critico"
+msgstr "Critico"
+
