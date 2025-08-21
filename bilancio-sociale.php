@@ -2,30 +2,29 @@
 /**
  * Plugin Name: Bilancio Sociale
  * Description: WP Plugin per la raccolta e analisi del Bilancio Sociale
- * Version: 1.1
+ * Version: 1.0
  * Author: Marco Giustini
  * Organization: Associazione Beni Comuni Stefano Rodotà
  * License: AGPL-3.0
  */
 
-define('BS_PLUGIN_DIR', plugin_dir_path(__FILE__));
+if (!defined('ABSPATH')) exit;
 
-add_action('plugins_loaded', function() {
-    load_plugin_textdomain('bilanciosociale', false, dirname(plugin_basename(__FILE__)) . '/languages');
-});
+require_once plugin_dir_path(__FILE__) . 'includes/api-handler.php';
+require_once plugin_dir_path(__FILE__) . 'includes/inventory-manager.php';
+require_once plugin_dir_path(__FILE__) . 'includes/indicatori-manager.php';
+require_once plugin_dir_path(__FILE__) . 'includes/admin-ui.php';
+require_once plugin_dir_path(__FILE__) . 'includes/buddypress-integration.php';
 
-function bs_enqueue_assets() {
-    wp_enqueue_script('chartjs', 'https://cdn.jsdelivr.net/npm/chart.js', [], null, true);
+add_action('admin_menu', 'bilancio_sociale_menu');
+
+function bilancio_sociale_menu() {
+    add_menu_page('Bilancio Sociale', 'Bilancio Sociale', 'read', 'bilancio-sociale', 'syh_dashboard', 'dashicons-chart-area', 25);
+    add_submenu_page('bilancio-sociale', 'Compila Questionario', 'Compila Questionario', 'read', 'syh-questionario', 'syh_render_questionario_page');
 }
-add_action('admin_enqueue_scripts', 'bs_enqueue_assets');
 
-require_once BS_PLUGIN_DIR . 'includes/form-render.php';
-require_once BS_PLUGIN_DIR . 'includes/data-handler.php';
-require_once BS_PLUGIN_DIR . 'includes/indicator-calculator.php';
-require_once BS_PLUGIN_DIR . 'includes/api-client.php';
-require_once BS_PLUGIN_DIR . 'includes/export.php';
-require_once BS_PLUGIN_DIR . 'includes/radar-logic.php';
-require_once BS_PLUGIN_DIR . 'admin/dashboard.php';
+function syh_dashboard() {
+    include plugin_dir_path(__FILE__) . 'templates/dashboard.php';
+}
 
-add_shortcode('bilancio_sociale_form', 'bs_render_form');
-?>
+
