@@ -21,7 +21,7 @@ Bilancio Sociale è un porting su Wordpress del software Show your Heart (Enseñ
 - Supporto multilingua (i18n)
 
 
-## 🛠️ Installazione
+## Installazione
 
 1. Clona il repository nella cartella dei plugin di WordPress:
 
