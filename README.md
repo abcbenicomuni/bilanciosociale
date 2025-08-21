@@ -23,7 +23,7 @@ Bilancio Sociale è un porting su Wordpress del software Show your Heart (Enseñ
 
 ## Installazione
 
-1. Clona il repository nella cartella dei plugin di WordPress:
+- Clona il repository nella cartella dei plugin di WordPress:
 
    ```bash
    git clone https://github.com/abcbenicomuni/bilanciosociale.git wp-content/plugins/bilanciosociale
