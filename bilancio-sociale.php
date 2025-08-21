@@ -4,6 +4,7 @@
  * Description: WP Plugin per la raccolta e analisi del Bilancio Sociale
  * Version: 1.1
  * Author: Marco Giustini
+ * Organization: Associazione Beni Comuni Stefano Rodotà
  * License: AGPL-3.0
  */
 
